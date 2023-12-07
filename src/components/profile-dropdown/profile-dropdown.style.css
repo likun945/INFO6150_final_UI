@@ -21,6 +21,11 @@
 .profile-avatar {
     border-radius: 50%;
 }
+.ant-avatar.ant-avatar-square.ant-avatar-image img{
+    width: 54px;
+    height: 54px;
+    border-radius: 5px;
+}
 
 @media only screen and (max-width: 991px) {
 
