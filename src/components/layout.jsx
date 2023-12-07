@@ -10,6 +10,7 @@ import useAuth from '../hooks/useAuth';
 const Layout = ({ children }) => {
   const location = useLocation();
   const { isAuthenticated } = useAuth();
+  const { pathname } = location;
   return (
     <div className="wrapper">
       <header>
@@ -24,10 +25,14 @@ const Layout = ({ children }) => {
               <Nav.Link className='nav-txt' href="/home"><b>Home</b></Nav.Link>
               <Nav.Link className='nav-txt' href="/about"><b>About</b></Nav.Link>
             </Nav>
-            <hr></hr>
+            {
+                  !pathname.includes('login') ? <hr></hr>:null
+            }
             <div className='nav-profile'>
               {isAuthenticated ? (
-                <ProfileDropdown />
+                <div>
+                  <ProfileDropdown />
+                </div>
               ) : (
                 !(location.pathname === '/login') && (<Link to="/login" className="d-block link-body-emphasis text-decoration-none">
                   LOGIN/SIGNUP

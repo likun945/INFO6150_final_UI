@@ -31,7 +31,7 @@ const LoginPage = () => {
       }
     } catch (error) {
       console.error('Error:', error);
-      messageApi.error('An error occurred while logging in');
+      messageApi.error('Incorrect email or password.');
     }
   };
 

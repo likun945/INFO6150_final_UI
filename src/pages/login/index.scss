@@ -65,7 +65,8 @@ button {
 }
 
 .loginContainer{
-    margin-top: 50px;
+    margin-top: 20px;
+    margin-bottom: 30px;
     img{
         width: 300px;
     }
@@ -127,4 +128,8 @@ h1{
     h1{
         font-size: 5vw !important;
     }
+}
+
+.nav-bar {
+    padding-bottom: 0px !important;
 }

@@ -1,5 +1,5 @@
 body {
-  background-color: #e2eaff !important;
+    background-color: #e2eaff !important;
 }
 
 .nav-txt {
@@ -55,9 +55,9 @@ body {
     text-align: center;
     font-size: 16px;
     font-family: 'Arial', sans-serif;
-    border-top: 1px solid #004085; 
-  }
-  
+    border-top: 1px solid #004085;
+}
+
 
 .homepageLogo {
     margin: 0 20px 0 40px;
@@ -81,13 +81,15 @@ body {
 @media only screen and (max-width: 991px) {
     .nav-collapse {
         padding: 0 3% 0 3%;
-        margin: 10px auto;
+        margin: 0px auto;
     }
+
     .nav-profile {
         width: 100%;
         margin: 10px auto;
         text-align: center;
     }
+
     .nav-txt {
         color: #007bff !important;
         font-size: 1.3rem !important;
