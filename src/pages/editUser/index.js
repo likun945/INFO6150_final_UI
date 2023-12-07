@@ -114,7 +114,7 @@ const RegistrationPage = () => {
     };
     const handleSubmit = async (values) => {
         try {
-            const submissionData = { ...values, email, avatar: 'https://gravatar.com/avatar/eae1eb440aaf5659719d518606a6657e?s=400&d=robohash&r=x' };
+            const submissionData = { ...values, email, avatar: 'https://gravatar.com/avatar/' };
             const response = await updateUser(submissionData);
             if (!response.success) {
                 throw new Error(`HTTP error! status: ${response.status}`);

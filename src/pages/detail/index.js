@@ -26,12 +26,14 @@ const Detail = () => {
     const id = queryParams.get('id');
     const { request: requestComments, isLoading: isLoadingComments, error: errorComments } = useRequest(`/comment?attraction_id=${id}`, { method: 'GET' });
     const { request: requestAttraction, isLoading: isLoadingAttraction, error: errorAttraction } = useRequest(`/attraction?id=${id}`, { method: 'GET' });
+    const { request: requestUsers, isLoading: isLoadingUsers, error: errorUsers } = useRequest(`/user`, { method: 'POST' });
     const { request: postComments, isLoadingLisLoadingPost, error: errorPost } = useRequest('/comment/add', { method: 'POST', headers: { 'Authorization': `Bearer ${token}` } });
     const [CommentTitle, SetCommentTitle] = useState('');
     const [CommentBody, SetCommentBody] = useState('');
     const [Loading, setLoading] = useState(true);
     const [AttractionData, setAttractionData] = useState(null);
     const [CommentData, SetCommentData] = useState(null);
+    const [userData, setUserData] = useState(null);
     const [commentNum, SetcommentNum] = useState(0);
     const [startIndex, SetstartIndex] = useState(0);
     const [Predisable, setPrevdisable] = useState(true);
@@ -41,10 +43,12 @@ const Detail = () => {
     const fetchData = async () => {
         const attrData = await requestAttraction();
         const commentData = await requestComments();
-        if (!errorComments && !errorAttraction) {
+        const Userdata=await requestUsers();
+        if (!errorComments && !errorAttraction && !errorUsers) {
             setAttractionData(attrData.data.attraction);
             SetCommentData(commentData.data.comments.filter(comment => comment.status === 1));
             SetcommentNum(commentData.data.comments.filter(comment => comment.status === 1).length);
+            setUserData(Userdata.data.users);
             SetstartIndex(0);
             setPrevdisable(true);
             if (commentData.data.comments.length <= 4) {
@@ -170,6 +174,13 @@ const Detail = () => {
             </span>
         );
     }
+    const getavatar=(comment)=>{
+        const tarUserarr=userData.filter(user=>user.userId===comment.reviewer_id);
+        if (tarUserarr.length===0){
+            return null;
+        }
+        return tarUserarr[0].avatar;
+    }
     const generateSingleComment = () => {
         if (commentNum === 0) {
             return <Empty />
@@ -181,7 +192,7 @@ const Detail = () => {
                         <div className="detail_comment_c1">
                             <div className="detail_comment_icon">
                                 <img
-                                    src={comment.avatar}
+                                    src={getavatar(comment)}
                                     style={{ height: '80%', width: '80%', margin: '10%' }}
                                 />
                             </div>
