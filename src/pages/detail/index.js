@@ -8,6 +8,7 @@ import { Rate } from 'antd';
 import 'antd/dist/antd.js'
 import { Empty } from 'antd';
 import { Breadcrumb } from 'antd';
+import { message } from 'antd';
 import { HomeOutlined } from '@ant-design/icons';
 const fake_attraction = getFakeAttraction();
 const fake_comment = getFakeComment();
@@ -270,7 +271,7 @@ const Detail = () => {
         }
         try {
             const response = await postComments(data);
-            alert("Post Success!");
+            message.success('Post Success!');
             SetCommentTitle('');
             SetCommentBody('');
             await fetchData();
@@ -445,7 +446,6 @@ const Detail = () => {
                                     Are you sure you want to submit this comment? Once submitted, you may not be able to edit or delete it.
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                     <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={handleSubmit}>Confirm</button>
                                 </div>
                             </div>
