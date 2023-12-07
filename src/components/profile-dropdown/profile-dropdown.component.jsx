@@ -20,7 +20,7 @@ const ProfileDropdown = () => {
             <Dropdown className='dropdown-box'>
                 <Dropdown.Toggle variant="light" id="profile-dropdown">
                     <Badge count={0}>
-                        <Avatar shape="square" size="large" src={avatar} />
+                        <Avatar shape="square" size={56} src={avatar} />
                         {/* <img src={process.env.PUBLIC_URL + '/profile.jpg'} alt="avatar" width="40" height="40" size="large" className='profile-avatar'/> */}
                     </Badge>
                     <span className="profile-name">
