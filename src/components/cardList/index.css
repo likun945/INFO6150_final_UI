@@ -1,0 +1,84 @@
+
+  .card-list {
+    width: 1300px;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    grid-gap: 50px;
+  }
+
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(92, 153, 173, 0.4);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    cursor: pointer;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+    overflow: hidden;
+  }
+
+  .card-container:hover {
+    transform: scale(1.05);
+  }
+
+  .card-img {
+    text-overflow: ellipsis;
+    height: 300px;
+  }
+
+  .card-title {
+    width: 50%;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 5px 5px 5px 10px;
+    font-size: 0.9em;
+    color: white !important;
+    background-color: royalblue;
+    border-radius: 8px;
+    position: relative;
+    top: -10px;
+    right: -10px;
+  }
+
+  .card-intro-area {
+    height: 100px;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.736);
+  }
+
+  .card-text {
+    font-size: small;
+    color: white !important;
+    padding: 20px;
+    position: relative;
+    top: -25px;
+  }
+  
+  @media only screen and (max-width: 1350px) {
+    .card-list {
+      width: 850px;
+      margin: 10px auto;
+      display: grid;
+      grid-template-columns:repeat(2, 1fr);
+      grid-gap: 50px;
+    }
+  }
+  @media only screen and (max-width: 850px) {
+    .card-list {
+      width: calc(100% - 20px);
+      margin: 10px auto;
+      display: grid;
+      max-width: 500px;
+      grid-template-columns:repeat(1, 1fr);
+    }
+  }

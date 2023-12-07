@@ -1,0 +1,42 @@
+.icon {
+    margin-right: 20px;
+}
+.profile-name {
+    margin-left: 10px;
+}
+.profile-email {
+    font-size: small;
+}
+
+.dropdwon-menu {
+    width: 200px;
+}
+
+.profile-info {
+    margin-top: 10px;
+    color: rgb(65, 65, 65);
+    line-height: 0.6;
+}
+
+.profile-avatar {
+    border-radius: 50%;
+}
+
+@media only screen and (max-width: 991px) {
+
+    .dropdwon-menu {
+        width: 100%;
+        margin: 10px auto;
+        text-align: center;
+        position: relative;
+    }
+    .profile-badge {
+        width: 100% !important;
+    }
+    .profile-container {
+        width: 100%;
+    }
+    #profile-dropdown {
+        width: 100%;
+    }
+}

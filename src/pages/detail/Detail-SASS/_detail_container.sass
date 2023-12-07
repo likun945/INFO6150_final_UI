@@ -1,0 +1,139 @@
+%align
+  align-items: center
+  align-content: center
+%justi
+  justify-content: center
+  justify-items: center
+$backcolor:white
+$radius:10px
+$containerwidth:70%
+@mixin alignedwidth_center($width:70%)
+  width: $width
+  margin-left: auto
+  margin-right: auto
+.detail_breadcrumb_container
+  @include alignedwidth_center($containerwidth)
+  height: 50px
+  margin-top: 2px
+  display: flex
+  @extend %align
+
+.detail_pic_rate_container
+  @include alignedwidth_center($containerwidth)
+  margin-top: 5px
+  height: 480px
+  display: flex
+  background-color: #{$backcolor}
+  border-radius: #{$radius}
+  padding-bottom: 5px
+.detail_intro_container
+  @include alignedwidth_center($containerwidth)
+  margin-top: 30px
+  max-height: 600px
+  height: auto
+  display: flex
+  flex-direction: column
+  background-color: #{$backcolor}
+  border-radius: #{$radius}
+  padding-bottom: 10px
+%a1
+  width: 48%
+  height: 85%
+  margin: auto auto auto 20px
+
+.detail_carousel_container
+  @extend %a1
+  width: 43%
+  margin-left: 5%
+  margin-right: auto
+.detail_rate_info_container
+  @extend %a1
+  width: 43%
+  margin-left: auto
+  margin-right: 5%
+
+
+.detail_comment_container
+  @include alignedwidth_center($containerwidth)
+  margin-top: 30px
+  max-height: 1000px
+  height: auto
+  display: flex
+  flex-direction: column
+  background-color: #{$backcolor}
+  border-radius: #{$radius}
+.detail_comment_input_text_container
+  flex: 1
+  width: 100%
+  height: 100%
+  margin: auto 5px auto 5px
+  display: flex
+  flex-direction: column
+  padding: 3px
+.detail_comment_input_rate_button_container
+  width: 200px
+  height: 100%
+  margin-left: auto
+  margin-right: 0
+  display: flex
+  flex-direction: column
+
+.detail_input_start_container
+  width: 100%
+  height: 50px
+  margin: auto auto 0 auto
+  display: flex
+  flex-direction: row
+  align-content: center
+  align-items: center
+  padding-left: 2.5%
+  
+.detail_comments_item_container
+  background-color: whitesmoke
+  display: flex
+  flex-direction: row
+  padding: 10px
+  height: auto
+  max-height: 250px
+  width: 100%
+  margin: 2px auto 8px auto
+.detail_pagination_container
+  width: 90%
+  height: 45px
+  margin: 2px auto 2px auto
+@media (max-width: 1300px)
+  .detail_intro_container, .detail_comment_container
+    margin-top: 15px !important
+    padding-top: 10px !important
+    padding-bottom: 10px !important
+  .detail_pic_rate_container
+    flex-direction: column !important
+    height: auto !important
+    padding-bottom: 15px !important
+    .detail_carousel_container
+      height: auto !important
+      width: 75% !important
+      margin: 5px auto 15px auto !important
+      max-width: 600px !important
+    .detail_rate_info_container
+      width: 90% !important
+      margin: 10px auto auto auto !important
+@media (max-width: 800px)
+  .detail_pagination_container ul
+    height: 25px
+  .detail_breadcrumb_container, .detail_pic_rate_container, .detail_intro_container, .detail_comment_container
+    width: 98% !important
+  .detail_intro_container, .detail_comment_container
+    margin-top: 15px !important
+  .detail_breadcrumb_container
+    height: 23px !important
+  .detail_comment_container
+    max-height: 1500px !important
+  .detail_comments_item_container
+    .detail_comment_name
+      font-size: 12px !important
+    p
+      font-size: 12px !important
+
+
+

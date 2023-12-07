@@ -1,0 +1,82 @@
+%align
+  align-items: center
+  align-content: center
+%justi
+  justify-content: center
+  justify-items: center
+
+%boldfont
+  font-weight: bold
+
+.breadcrumb
+  a
+    @extend %boldfont
+    text-decoration-line: none
+
+.detail_breadcrumb_container
+  nav.Detail0, ol ,li
+    display: flex
+    @extend %align
+    text-align: center
+  ol
+    margin: 0
+
+
+.carousel.slide
+  height: 100%
+  width: 100%
+
+.carousel-inner
+  height: 100%
+
+.list-group-item.d-flex.justify-content-between.align-items-center
+  padding-right: 0
+  align-items: unset !important
+
+.accordion-collapse.collapse.show
+  height: auto
+  flex: 1
+  overflow: auto
+.detail_intro_content2 .accordion
+  max-height: 250px
+  height: auto
+  flex: 1
+.detail_intro_content .accordion
+  max-height: 140px
+  height: auto
+  flex: 1
+.detail_intro_content2 .accordion-item
+  max-height: 250px
+  display: flex
+  flex-direction: column
+.detail_intro_content .accordion-item
+  max-height: 140px
+  display: flex
+  flex-direction: column
+.detail_intro_content2 .accordion-body
+  flex: 1
+  overflow: auto
+  height: auto
+.detail_intro_content .accordion-body
+  flex: 1
+  overflow: auto
+  height: auto
+.accordion-button
+  font-size: 23px
+  font-weight: bold
+  padding: 20px
+  align-items: center
+  align-content: center
+.carousel-indicators
+  top: 0
+.spinner-border
+  margin: 0 auto 10px 5%
+.page-item.current
+  a
+    background-color: gray
+@media (max-width: 800px)
+  .accordion-body
+    font-size: 13px !important
+  .accordion-button
+    font-size: 16px !important
+    padding: 10px !important

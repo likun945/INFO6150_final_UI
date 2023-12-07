@@ -1,0 +1,22 @@
+@use "detail_test_border"
+@use "detail_container"
+@use "detail_bootstrap_modification"
+@use "detail_original_style"
+@use "detail_ant_modification"
+$nav_height:0px
+
+%detail_no_pad_marg
+  padding: 0
+  margin: 0
+div.detail_body
+  @extend %detail_no_pad_marg
+
+
+.detail_main_container
+  @extend %detail_no_pad_marg
+  --screenwith : 0
+  height: auto
+  padding-bottom: 25px
+  width: 100%
+  overflow: hidden
+  background-color: #B7C9E1

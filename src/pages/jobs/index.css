@@ -1,0 +1,46 @@
+/* index.css */
+
+.jobs-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .jobs-heading {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .job-experience {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .job-experience h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 0;
+  }
+  
+  .job-date {
+    font-size: 16px;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .job-description {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 18px;
+    color: #444;
+  }
+  
+  .job-description li {
+    margin-bottom: 10px;
+  }
+  

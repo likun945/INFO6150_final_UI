@@ -1,0 +1,240 @@
+.detail_rating
+  display: flex
+  flex-direction: row
+  align-items: center
+  align-content: center
+  cursor: pointer
+  span.active
+    color: red
+
+.detail_score
+  display: flex
+  align-content: center
+  align-items: center
+  margin-right: auto
+  margin-left: 20px
+  h2
+    padding: 0
+    margin: 0
+
+.detail_yellow_bold
+  font-weight: bold
+  color: orange
+
+.detail_list_title
+  h6
+    margin-top: 5px
+    margin-bottom: 5px
+    font-weight: bold
+    width: 110px
+.detail_input_start_container
+  span
+    margin-right: 5px
+    font-size: 30px
+    cursor: pointer
+  span.active
+    color: red
+.detail_list_content
+  margin-left: 0
+  margin-right: auto
+  display: flex
+  flex-direction: column
+  h6
+    margin-top: 5px
+    margin-bottom: 5px
+
+.detail_intro_content
+  overflow: hidden
+  height: auto
+  max-height: 140px
+  width: 90%
+  margin: 0.5% auto 10px auto
+  display: flex
+  flex-direction: column
+
+.detail_intro_content2
+  overflow: hidden
+  max-height: 250px
+  height: auto
+  width: 90%
+  margin: 1.5% auto 10px auto
+  display: flex
+  flex-direction: column
+.detail_comment_head
+  margin: 1.5% auto 0.5% auto
+  width: 90%
+  height: 40px
+  display: flex
+  align-content: center
+  align-items: center
+  font-size: 25px
+  font-weight: bold
+.detail_comment_input
+  position: relative
+  padding: 12px 10px 10px
+  width: 90%
+  height: 225px
+  margin: 5px auto 0.5% auto
+  display: flex
+  flex-direction: row
+  background-color: #efefef
+.detail_comment_contents
+  width: 90%
+  max-height: 600px
+  height: auto
+  margin: 0.5% auto 0.5% auto
+  display: flex
+  flex-direction: column
+  overflow: auto
+.detail_comment_c1
+  display: flex
+  flex-direction: column
+  margin-right: 5px
+.detail_comment_c2
+  width: calc(100% - 180px)
+  display: flex
+  flex-direction: column
+.detail_comment_icon
+  height: 100px
+  width: 100px
+  margin-right: 20px
+.detail_comment_name
+  height: 45px
+  width: 120px
+.detail_comment_rate
+  height: 35px
+  width: 100%
+  margin-left: 5px
+  display: flex
+  flex-direction: row
+  align-items: center
+  align-content: center
+.detail_comment_text
+  display: flex
+  flex: 1
+  min-height: 110px
+  width: 100%
+  height: auto
+  max-height: 290px
+  margin-left: 5px
+.detail_comment_text
+  p
+    flex: 1
+    overflow: hidden
+.detail_comment_rate_star
+  text-align: center
+  font-size: 23px
+.detail_comment_text
+  font-size: 15px
+  font-family: Arial,serif
+.detail_comment_name
+  font-size: 15px
+  font-family: Arial,serif
+  font-weight: bold
+textarea.detail_comment_textarea
+  padding: 5px
+  font-size: 15px
+  flex: 1
+  width: 100%
+  overflow: auto
+textarea.detail_comment_textarea_title
+  padding: 5px
+  margin-bottom: 12px
+  height: 35px
+  width: 100%
+.detail_comment_submit
+  height: 35px
+  width: 95%
+  margin: 5px auto 5px auto
+.detail_comment_rate_time.Detail0
+  margin-left: 20px
+  padding-top: 4px
+  text-align: center
+.detail_comment_title
+  height: 25px
+  padding: 0
+  margin: 0
+  font-weight: bold
+  padding-left: 2px
+.cover
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: rgba(0, 0, 0, 0.5)
+  display: flex
+  align-items: center
+  justify-content: center
+@media (max-width: 1300px)
+  .detail_comment_input
+    height: 325px !important
+    padding: 10px !important
+    flex-direction: column !important
+  .detail_comment_input_rate_button_container
+    width: 100% !important
+    height: 50px !important
+    flex-direction: row !important
+    .detail_input_start_container
+      width: auto!important
+      height: 100%!important
+      padding: 0!important
+      margin: auto 0 auto 0!important
+    .detail_comment_submit
+      width: 200px!important
+      height: 95%!important
+      margin: 5px auto auto 5px !important
+  .detail_comment_input_text_container
+    margin: 0 !important
+
+@media (max-width: 800px)
+  .detail_comment_input
+    height: 275px !important
+  .list-group-item.d-flex.justify-content-between.align-items-center
+    padding: 1px !important
+    margin: 0 !important
+    h1
+      font-size: 23px !important
+    h6
+      font-size: 12px !important
+  .detail_rating
+    span
+      font-size: 28px !important
+  .detail_score
+    span
+      font-size: 22px !important
+    .detail_yellow_bold
+      font-size: 25px !important
+  .detail_comment_head
+    font-size: 16px !important
+    margin-top: 0.5% !important
+  .detail_comment_icon
+    margin-right: 10px !important
+    height: 70px !important
+    width: 70px !important
+  .detail_comment_name
+    width: 80px !important
+  .detail_comment_rate
+    height: 25px !important
+  .detail_comment_c2
+    width: calc(100% - 90px) !important
+  .detail_comment_input_rate_button_container
+    height: 35px !important
+    span
+      font-size: 25px!important
+    .detail_comment_submit
+      height: 85% !important
+      width: 100px !important
+      margin-top: 5.5px !important
+  .detail_comment_textarea
+    font-size: 13px !important
+  .detail_comment_rate_star
+    font-size: 20px !important
+  .detail_comment_title
+    font-size: 18px!important
+  .detail_comment_rate_time
+    font-size: 13px!important
+    margin-left: 10px!important
+
+
+
