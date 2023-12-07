@@ -175,7 +175,7 @@ const Detail = () => {
             return <Empty />
         }
         return CommentData && CommentData.length > 0 && CommentData.map((comment, index) => {
-            if (index <= startIndex + 3) {
+            if (index <= startIndex + 3 && index>=startIndex) {
                 return (
                     <div className="detail_comments_item_container" >
                         <div className="detail_comment_c1">
