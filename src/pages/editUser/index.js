@@ -9,6 +9,7 @@ import {
     Upload,
     message,
     Flex,
+    Modal
 } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
@@ -24,7 +25,12 @@ const getBase64 = (file) =>
         reader.onload = () => resolve(reader.result);
         reader.onerror = error => reject(error);
     });
+const presetAvatars = [
+    'https://resizing.flixster.com/xkP-QzPdNnU1Q8KQuBB6Q0YCeTU=/218x280/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/371287_v9_bc.jpg',
+    'https://1.gravatar.com/avatar/8337f2645519be33dbb5497e73ed4dcb2a69ca9eee8486c774db5bb95d41b019?size=512',
+    'https://cdn.pixabay.com/photo/2021/11/12/03/04/woman-6787784_1280.png'
 
+];
 const initialFileList = [
     {
         uid: '-1', // 文件唯一标识符，负数表示是预加载的文件
@@ -38,6 +44,8 @@ const RegistrationPage = () => {
     const [form] = Form.useForm();
     const [countries, setCountries] = useState([]);
     const [fileList, setFileList] = useState(initialFileList);
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [selectedAvatar, setSelectedAvatar] = useState([{ uid: '-1', name: 'avatar.png', status: 'done', url:'https://1.gravatar.com/avatar/8337f2645519be33dbb5497e73ed4dcb2a69ca9eee8486c774db5bb95d41b019?size=512'}]);
     const navigate = useNavigate();
     const { isAuthenticated, email } = useAuth();
     const { request } = useRequest('/user', { method: 'POST' })
@@ -100,7 +108,6 @@ const RegistrationPage = () => {
     }, []);
     const handleUploadChange = async ({ file, fileList: newFileList }) => {
         setFileList(newFileList);
-
         const latestFile = newFileList[newFileList.length - 1];
         if (latestFile && latestFile.originFileObj) {
             try {
@@ -114,7 +121,7 @@ const RegistrationPage = () => {
     };
     const handleSubmit = async (values) => {
         try {
-            const submissionData = { ...values, email, avatar: 'https://0.gravatar.com/avatar/20e74a1399c883caeeba81b57007bcaa058940dcdffca01babfddbaefa5c3c4a?size=512' };
+            const submissionData = { ...values, email, avatar: selectedAvatar[0].url };
             const response = await updateUser(submissionData);
             if (!response.success) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -130,6 +137,10 @@ const RegistrationPage = () => {
             console.error('error in submitting form', error);
             message.error('Error submitting form');
         }
+    };
+    const handleAvatarSelect = url => {
+        setSelectedAvatar([{ uid: '-1', name: 'avatar.png', status: 'done', url }]);
+        setIsModalVisible(false);
     };
     return (
         <Flex className="formContainer" justify='center'>
@@ -182,14 +193,31 @@ const RegistrationPage = () => {
                 </Form.Item>
                 <Form.Item label="Avatar" name="avatar" rules={[{ required: true, message: 'You should upload your avatar' }]}>
                     <Upload
+                        openFileDialogOnClick={false}
                         listType="picture-card"
-                        fileList={fileList}
+                        fileList={selectedAvatar}
                         onChange={handleUploadChange}
                         beforeUpload={() => false}
+                        onRemove={()=>setSelectedAvatar([])}
                     >
-                        {fileList.length < 1 && <PlusOutlined />}
+                        {selectedAvatar.length < 1 && <PlusOutlined onClick={() => setIsModalVisible(true)}/>}
                     </Upload>
                 </Form.Item>
+                <Modal
+                    title="Choose an avatar"
+                    open={isModalVisible}
+                    onOk={() => setIsModalVisible(false)}
+                    onCancel={() => setIsModalVisible(false)}
+                    footer={null}
+                >
+                    <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+                        {presetAvatars.map((url, index) => (
+                            <Button key={index} style={{ margin: 5 ,width:"auto",height:'auto' }} onClick={() => handleAvatarSelect(url)}>
+                                <img src={url} alt={`avatar-${index}`} style={{ width: '80px', height: '80px' }} />
+                            </Button>
+                        ))}
+                    </div>
+                </Modal>
                 <Form.Item
                     label="Age"
                     name="age"
